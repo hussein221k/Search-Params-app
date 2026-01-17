@@ -1,0 +1,26 @@
+# تجاهل مجلد node_modules بالكامل
+node_modules/
+node_modules
+/node_modules
+./src/node_modules
+# تجاهل ملفات البناء أو التوزيع
+dist/
+build/
+
+# تجاهل ملفات إعدادات IDE
+.vscode/
+.idea/
+
+# تجاهل ملفات النظام
+.DS_Store
+Thumbs.db
+
+# تجاهل ملفات البيئة الحساسة
+.env
+
+# تجاهل جميع الملفات بصيغة معينة
+*.log
+*.tmp
+logs/debug/
+*.txt
+!important.txt
