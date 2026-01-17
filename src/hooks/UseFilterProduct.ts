@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
-import type { Product, Filters } from "../schema/Product";
+import type { Product, Filters } from "../schema/product";
 import productGet from "../api/productGet";
 import { useDebounce } from "./useDebounce";
 import { useSearchParams } from "react-router-dom";
@@ -13,7 +13,6 @@ export default function useFilteredProducts() {
     queryFn: productGet,
   });
 
- 
   const [filters, setFilters] = useState<Filters>({
     search: searchParams.get("search") || "",
     category: searchParams.get("category") || "all",
@@ -21,7 +20,6 @@ export default function useFilteredProducts() {
   });
 
   const debouncedSearch = useDebounce(filters.search, 400);
-
 
   const handleFilterChange = useCallback(
     (key: keyof Filters, value: string | undefined) => {
@@ -37,18 +35,18 @@ export default function useFilteredProducts() {
 
       setSearchParams(params);
     },
-    [searchParams, setSearchParams]
+    [searchParams, setSearchParams],
   );
 
-
-  const handleChange = 
+  const handleChange = useCallback(
     (
       e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-      key: keyof Filters
+      key: keyof Filters,
     ) => {
       handleFilterChange(key, e.target.value);
-    }
-
+    },
+    [handleFilterChange],
+  );
 
   const filteredProducts = products
     ?.filter((product) => {

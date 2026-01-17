@@ -1,5 +1,5 @@
 import ProductSkeleton from "./SkeletonLoader";
-import type { Product } from "../schema/Product";
+import type { Product } from "../schema/product";
 
 const ProductsCards = ({ products }: { products: Product[] | undefined }) => {
   if (!products) {

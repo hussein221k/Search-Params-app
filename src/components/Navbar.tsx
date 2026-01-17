@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="flex items-center gap-6">
           {["Home", "Projects", "About", "Contact"].map((item) => (
             <a
-              href={`/${item.toLowerCase()}`}
+              href={`#`}
               key={item}
               className="
                 relative font-medium
